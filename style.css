@@ -1,0 +1,108 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #0d6573;
+    color : grey;
+}
+
+.card {
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%,-50%);
+    width : 400px;
+    box-shadow: 2px 2px 2px 1px rgb(75, 75, 75);
+}
+
+
+.card-body{
+    padding : 0;
+}
+
+ul{
+    list-style-type: none;
+    padding : 0;
+    margin : 0;
+}
+
+ul li{
+    padding : 12px 8px 12px 40px;
+    /* background-color: #eee; */
+    position: relative;
+    transition: 0.3s;
+    cursor: pointer;
+    font-size: 18p;
+
+    -webkit-user-select : none;
+    -moz-user-select : none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ul li:hover{
+    background-color: #ddd;
+}
+
+ul li.checked{
+    color : white;
+    background-color: rgb(172, 172, 172);
+    text-decoration: line-through;
+    font-weight: 600;
+}
+
+ul li.checked::before{
+    content : '';
+    position: absolute;
+    top : 14px;
+    left : 16px;
+    border-color: #fff;
+    border-style: solid;
+    height : 15px;
+    width : 7px;
+    border-width : 0 2px 2px 0;
+    transform : rotate(45deg);
+}
+
+
+.card-footer{
+    padding :10px;
+    background-color: #fff;
+    padding-bottom: 0;
+}
+
+input {
+    width : 75%;
+    padding : 15px;
+    border : none;
+    border-bottom: 1px solid #0d6573;
+    outline : none;
+    float:left;
+}
+
+.addBtn{
+    color : #fff;
+    padding : 25px;
+    float:left;
+    width : 25%;
+}
+
+.addBtn .fa{
+    font-weight : 2px;
+    font-size: 20px;
+    font-weight : normal;
+    background-color :  #0d6573;
+    border-radius: 50%;
+    padding :8px;
+}
+
+.addBtn .fa:hover{
+    background-color:  #0c424b;
+}
+
+.close {
+    padding : 2px;
+    top : 0;
+    right : 0;
+}

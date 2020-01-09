@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <title>To Do App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel = "stylesheet" href = "style.css">
+
+</head>
+
+<body>
+
+  <div class = "main container">
+
+    <div class = "card">
+
+      <div class = "card-header">
+        <h3>My To Do List</h3>
+      </div>
+
+      <div class = "card-body">
+
+        <ul id = "myUnorderedList">
+          <li>Hit the gym</li>
+          <li class="checked">Pay bills</li>
+          <li>Meet George</li>
+          <li>Buy eggs</li>
+          <li>Read a book</li>
+          <li>Organize office</li>
+        </ul>
+
+      </div>
+
+      <div class = "card-footer">
+        <input type = "text" id = "EntryInput" placeholder = "Enter task.......">
+        <span class = "addBtn" onclick = "newElement()">
+          <i class = "fa fa-plus"></i>
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    var myNodelist = document.getElementsByTagName("li");
+    var i ;
+
+    for(i = 0 ; i < myNodelist.length ; i++){
+      var span = document.createElement("span");
+      var txt = document.createTextNode("\u00D7");
+
+      span.className = "close";
+      span.appendChild(txt);
+      myNodelist[i].appendChild(span);
+
+    }
+
+    var close = document.getElementsByClassName("close");
+    var i;
+
+    for(i = 0 ; i < close.length ; i++){
+      close[i].onclick = function(){
+        var itemList = this.parentNode;
+        itemList.style.display = "none";
+      }
+    }
+
+    var list = document.querySelector('ul');
+    list.addEventListener('click',function(ev){
+      if(ev.target.tagName = 'li'){
+        ev.target.classList.toggle("checked");
+      }
+    },false);
+
+    function newElement(){
+      var li = document.createElement("li");
+      var inputValue = document.getElementById("EntryInput").value;
+      var t = document.createTextNode(inputValue);
+      li.appendChild(t);
+
+      if(inputValue === ''){
+        alert("You must enter something!");
+      }else{
+        document.getElementById("myUnorderedList").appendChild(li);
+      }
+      document.getElementById("EntryInput").value = "";
+      
+      var span = document.createElement("span");
+      var txt = document.createTextNode("\u00D7");
+      
+      span.className = "close";
+      span.appendChild(txt);
+      li.appendChild(span);
+
+      for(i = 0 ; i < close.length ; i++){
+        close[i].onclick = function(){
+          var itemList = this.parentNode;
+          itemList.style.display = "none";
+        }
+      }
+
+    }
+
+
+  </script>
+
+</body>
+
+</html>
