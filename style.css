@@ -5,6 +5,8 @@
 body{
     background-color: #0d6573;
     color : grey;
+    padding : 0;
+    margin : 0;
 }
 
 .card {
